@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import '../components/styles/login.css';
 import Navbar from '../components/Navbar';
 import Input from '../components/input';
 import Button1 from '../components/Button1';
+
+import { Link } from 'react-router-dom';
 
 function SignUp() {
     const [firstName, setFirstName] = useState('');
@@ -15,29 +17,45 @@ function SignUp() {
 
     const navigate = useNavigate();
 
+    // Fonction pour vérifier si l'email est valide
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    };
+
     async function signup(event) {
         event.preventDefault();
-        console.log('Form submitted');
-        console.log('First Name:', firstName);
-        console.log('Email:', email);
-        console.log('Password:', password);
+        
+        // Réinitialiser les messages d'erreur et de succès
+        setError('');
+        setSuccess('');
+
+        // Validation des champs
+        if (!firstName || !email || !password) {
+            setError('Tous les champs doivent être remplis.');
+            return; // Empêche la soumission du formulaire
+        }
+
+        if (!validateEmail(email)) {
+            setError('L\'adresse email est invalide.');
+            return; // Empêche la soumission du formulaire
+        }
 
         try {
             const response = await axios.post('http://localhost:3001/users', {
                 firstName,
                 email,
                 password,
-                role : "user"
+                role: "user"
             });
             console.log('Response:', response);
             setSuccess('Inscription réussie !');
-            setError('');
-
+            
+            // Redirection après une inscription réussie
             navigate('/dashboard');
         } catch (err) {
             console.error('Error:', err);
             setError('Erreur lors de l\'inscription. Veuillez réessayer.');
-            setSuccess('');
         }
     }
 
@@ -69,8 +87,8 @@ function SignUp() {
                 </form>
                 {error && <p className="error-message">{error}</p>}
                 {success && <p className="success-message">{success}</p>}
-                <div className="link">
-                    <a href="#">I already have an account</a>
+                <div className="link" id='linkSignUp'>
+                    <Link to="/login">I already have an account</Link>
                 </div>
             </div>
         </div>

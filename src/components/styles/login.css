@@ -16,6 +16,11 @@ input{
     border-radius: 1vh;
     border-width: 0.5px;
     border-color: #0000007c;
+    margin-bottom: 1vh;
+}
+
+.error-message{
+    margin-top: 5vh;
 }
 
 input::placeholder{
@@ -27,6 +32,7 @@ input::placeholder{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
 }
 
 .inputsSignup{
@@ -34,6 +40,7 @@ input::placeholder{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
 }
 
 .link{
@@ -44,4 +51,8 @@ input::placeholder{
     color: black;
     font-style: italic;
     font-size: 2vh;
+}
+
+#linkSignUp{
+    margin-top: 15vh;
 }

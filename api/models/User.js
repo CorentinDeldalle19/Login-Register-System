@@ -3,8 +3,7 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      User.hasOne(models.Admin, { foreignKey: 'idUser' });
-      User.belongsToMany(models.Language, { through: 'UserLanguages', as: 'Languages', foreignKey: 'userId' });
+      
     }
   }
   User.init({

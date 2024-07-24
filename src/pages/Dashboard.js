@@ -17,7 +17,10 @@ function Dashboard(){
                 <div className="cards">
                     <Card title="Javascript" image={javascript} link="Go back →"/>
                     <Card title="Python" image={python} link="Go back →"/>
-                    <Card title="C" image={c} link="Go back →"/>
+                    <Card title="Javascript" image={javascript} link="Go back →"/>
+                    <Card title="Python" image={python} link="Go back →"/>
+                    <Card title="Javascript" image={javascript} link="Go back →"/>
+                    <Card title="Python" image={python} link="Go back →"/>
                 </div>
                 <div className="section">
                     <div className="left">

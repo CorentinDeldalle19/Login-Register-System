@@ -20,16 +20,6 @@ function Navbar(){
                     </Link>
                     </li>
                 </ul>
-                <ul id="center">
-                    <li>
-                        <Link to="/dashboard">
-                            <img src={Accueil} alt=""/>
-                        </Link>
-                        <Link to="/dashboard">
-                            <img src={Bibliotheque} alt=""/>
-                        </Link>
-                    </li>
-                </ul>
                 <ul id="buttons">
                     <li>
                         <Button1 text="Log in" href="/login"/>
